@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import FontFamilyButton from "./toolbarbutton/fontfamilybutton";
+import HeadingLevelButton from "./toolbarbutton/headinglevelbutton";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -147,6 +148,9 @@ export const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
 
       <FontFamilyButton />
+      <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
+
+      <HeadingLevelButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
 
       {sections[1].map((button) => (
