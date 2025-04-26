@@ -4,7 +4,7 @@ import {
   DropdownMenuContent,
 } from "@/components/ui/dropdown-menu";
 import { useEditorStore } from "@/store/use-editor-store";
-import { type ColorResult, CirclePicker } from "react-color";
+import { type ColorResult, CirclePicker, SketchPicker } from "react-color";
 
 const TextColorButton = () => {
   const { editor } = useEditorStore();
@@ -27,7 +27,7 @@ const TextColorButton = () => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2.5 z-[9999]">
-        <CirclePicker color={currentColor} onChange={onChange} />
+        <SketchPicker color={currentColor} onChange={onChange} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
