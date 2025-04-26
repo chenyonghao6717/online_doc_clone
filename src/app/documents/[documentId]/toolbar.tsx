@@ -19,6 +19,7 @@ import { useEditorStore } from "@/store/use-editor-store";
 import FontFamilyButton from "./toolbarbutton/font-family-button";
 import HeadingLevelButton from "./toolbarbutton/heading-level-button";
 import TextColorButton from "./toolbarbutton/text-color-button";
+import HighlightColorButton from "./toolbarbutton/highlight-color-button";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -159,6 +160,7 @@ export const Toolbar = () => {
       ))}
 
       <TextColorButton />
+      <HighlightColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
 
       {sections[2].map((button) => (
