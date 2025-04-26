@@ -3,6 +3,7 @@
 import FontFamily from "@tiptap/extension-font-family";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
+import Link from "@tiptap/extension-link";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
@@ -51,6 +52,11 @@ export const Editor = () => {
       Highlight.configure({ multicolor: true }),
       Image,
       ImageResize,
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: "https",
+      }),
       StarterKit,
       Table,
       TableCell,
