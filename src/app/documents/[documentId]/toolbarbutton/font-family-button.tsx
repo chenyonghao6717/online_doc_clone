@@ -1,10 +1,10 @@
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
+import TriggerButton from "./trigger-button";
 import { ChevronDownIcon } from "lucide-react";
 
 const fonts = [
@@ -19,14 +19,12 @@ const FontFamilyButton = () => {
   const { editor } = useEditorStore();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:background-neutral-200/80 px-1.5 overflow-hidden text-sm">
-          <span className="truncate">
-            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
-          </span>
-          <ChevronDownIcon className="ml-2 size-4 shrink-0" />
-        </button>
-      </DropdownMenuTrigger>
+      <TriggerButton>
+        <span className="truncate">
+          {editor?.getAttributes("textStyle").fontFamily || "Arial"}
+        </span>
+        <ChevronDownIcon className="ml-2 size-4 shrink-0" />
+      </TriggerButton>
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {fonts.map(({ label, value }) => (
           <button

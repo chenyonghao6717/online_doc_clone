@@ -4,10 +4,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
 } from "@/components/ui/dropdown-menu";
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { type Level } from "@tiptap/extension-heading";
+import TriggerButton from "./trigger-button";
+import { ChevronDownIcon } from "lucide-react";
 
 const headings = [
   { label: "Normal text", value: 0, fontSize: "16px" },
@@ -18,7 +18,7 @@ const headings = [
   { label: "Heading 5", value: 5, fontSize: "16px" },
 ];
 
-const getCurrentHeading = (editor: Editor | null) => {
+const getCurrentHeading = (editor: Editor | null): string => {
   for (let level = 1; level <= 5; level++) {
     if (editor?.isActive("heading", { level })) {
       return `Heading ${level}`;
@@ -52,12 +52,10 @@ const HeadingLevelButton = () => {
   const { editor } = useEditorStore();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:background-neutral-200/80 px-1.5 overflow-hidden text-sm">
-          <span className="truncate">{getCurrentHeading(editor)}</span>
-          <ChevronDownIcon className="ml-2 size-4 shrink-0" />
-        </button>
-      </DropdownMenuTrigger>
+      <TriggerButton>
+        <span className="truncate">{getCurrentHeading(editor)}</span>
+        <ChevronDownIcon className="ml-2 size-4 shrink-0" />
+      </TriggerButton>
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {headings.map(({ label, value, fontSize }) => (
           <button

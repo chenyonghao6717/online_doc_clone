@@ -11,14 +11,15 @@ import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import TextStyle from "@tiptap/extension-text-style";
 import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 import {
   useEditor,
   EditorContent,
   Editor as TiptapEditor,
 } from "@tiptap/react";
-
 import { useEditorStore } from "@/store/use-editor-store";
-import Underline from "@tiptap/extension-underline";
 
 export const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -45,7 +46,9 @@ export const Editor = () => {
       },
     },
     extensions: [
+      Color,
       FontFamily,
+      Highlight.configure({ multicolor: true }),
       Image,
       ImageResize,
       StarterKit,

@@ -16,8 +16,9 @@ import {
   Undo2Icon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
-import FontFamilyButton from "./toolbarbutton/fontfamilybutton";
-import HeadingLevelButton from "./toolbarbutton/headinglevelbutton";
+import FontFamilyButton from "./toolbarbutton/font-family-button";
+import HeadingLevelButton from "./toolbarbutton/heading-level-button";
+import TextColorButton from "./toolbarbutton/text-color-button";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -156,6 +157,8 @@ export const Toolbar = () => {
       {sections[1].map((button) => (
         <ToolbarButton key={button.label} {...button} />
       ))}
+
+      <TextColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
 
       {sections[2].map((button) => (
