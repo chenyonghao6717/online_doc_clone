@@ -21,6 +21,8 @@ import HeadingLevelButton from "./toolbarbutton/heading-level-button";
 import TextColorButton from "./toolbarbutton/text-color-button";
 import HighlightColorButton from "./toolbarbutton/highlight-color-button";
 import LinkButton from "./toolbarbutton/link-button";
+import ImageButton from "./toolbarbutton/image-button";
+import AlignButton from "./toolbarbutton/align-button";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -165,6 +167,8 @@ export const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
 
       <LinkButton />
+      <ImageButton />
+      <AlignButton />
 
       {sections[2].map((button) => (
         <ToolbarButton key={button.label} {...button} />

@@ -10,6 +10,7 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
+import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
@@ -64,25 +65,13 @@ export const Editor = () => {
       TableRow,
       TaskItem.configure({ nested: true }),
       TaskList,
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
       TextStyle,
       Underline,
     ],
-    content: `
-      <table>
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <th colspan="3">Description</th>
-          </tr>
-          <tr>
-            <td>Cyndi Lauper</td>
-            <td>Singer</td>
-            <td>Songwriter</td>
-            <td>Actress</td>
-          </tr>
-        </tbody>
-      </table>
-    `,
+    content: ``,
   });
   return (
     <div className="size-full overflow-x-auto bg-[#F9FBFD] px-4 print:p-0 print:bg-white print:overflow-visible">
