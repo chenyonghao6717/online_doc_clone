@@ -16,13 +16,15 @@ import {
   Undo2Icon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
-import FontFamilyButton from "./toolbarbutton/font-family-button";
-import HeadingLevelButton from "./toolbarbutton/heading-level-button";
-import TextColorButton from "./toolbarbutton/text-color-button";
-import HighlightColorButton from "./toolbarbutton/highlight-color-button";
-import LinkButton from "./toolbarbutton/link-button";
-import ImageButton from "./toolbarbutton/image-button";
-import AlignButton from "./toolbarbutton/align-button";
+import FontFamilyButton from "./toolbarbuttons/font-family-button";
+import HeadingLevelButton from "./toolbarbuttons/heading-level-button";
+import TextColorButton from "./toolbarbuttons/text-color-button";
+import HighlightColorButton from "./toolbarbuttons/highlight-color-button";
+import LinkButton from "./toolbarbuttons/link-button";
+import ImageButton from "./toolbarbuttons/image-button";
+import AlignButton from "./toolbarbuttons/align-button";
+import ListButton from "./toolbarbuttons/list-button";
+import FontSizeButton from "./toolbarbuttons/font-size-button";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -158,6 +160,9 @@ export const Toolbar = () => {
       <HeadingLevelButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
 
+      <FontSizeButton />
+      <Separator orientation="vertical" className="h-6 bg-neutral-300 " />
+
       {sections[1].map((button) => (
         <ToolbarButton key={button.label} {...button} />
       ))}
@@ -169,6 +174,7 @@ export const Toolbar = () => {
       <LinkButton />
       <ImageButton />
       <AlignButton />
+      <ListButton />
 
       {sections[2].map((button) => (
         <ToolbarButton key={button.label} {...button} />
