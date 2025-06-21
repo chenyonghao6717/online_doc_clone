@@ -1,11 +1,11 @@
-const { Pool } = require("pg");
+import { PrismaClient } from "@prisma/client";
 
-const pool = new Pool({
-  user: "admin",
-  host: "localhost", // Docker exposes PostgreSQL to host via port 5432
-  database: "online-doc",
-  password: "123456",
-  port: 5432,
-});
+declare global {
+  var prisma: PrismaClient | undefined;
+}
 
-module.exports(pool);
+const prisma = global.prisma || new PrismaClient();
+
+if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+
+export default prisma;
